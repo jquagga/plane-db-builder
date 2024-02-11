@@ -1,0 +1,18 @@
+[project]
+name = "planes"
+dependencies = ["pandas"]
+requires-python = ">=3.12"
+authors = [{ name = "Justin Settle" }]
+description = "scripts to manipulate plane-alert-db on a formula"
+readme = "README.md"
+license = { file = "LICENSE" }
+
+[tool.black]
+line-length = 88
+target-version = ['py312']
+
+[tool.isort]
+profile = "black"
+
+[tool.pylint.format]
+max-line-length = "88"
