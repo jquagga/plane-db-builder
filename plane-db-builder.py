@@ -28,6 +28,7 @@ aircraftlist = aircraftlist.drop(["Zeros", "Six", "Eight", "Nine"], axis=1)
 
 # Patch the supplement list with data from the aircraft database
 supplement.update(aircraftlist)
+supplement.to_csv("supplement.csv")
 
 originaldb = pd.read_csv("plane-alert-db.csv", header=0, dtype=str, index_col="$ICAO")
 
@@ -56,6 +57,7 @@ cool = aircraftlist.query(
 customdb = pd.concat(
     [supplement, dictators, gasbags, aero, radiohead, gov, historic, big, cool]
 )
+customdb = customdb.drop_duplicates()
 customdb = customdb.sort_values(by="$ICAO")
 customdb.to_csv("plane-alert-db-custom.csv")
 
