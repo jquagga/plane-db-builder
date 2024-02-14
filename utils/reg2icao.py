@@ -2,9 +2,11 @@
 
 import pandas as pd
 
-infile = pd.read_csv("in.csv",).set_index("$Registration")
+infile = pd.read_csv(
+    "in.csv",
+).set_index("$Registration")
 
-#print(infile)
+# print(infile)
 
 # aircraft list uses a ; instead of a comma
 aircraftlist = pd.read_csv(
@@ -27,11 +29,11 @@ aircraftlist = pd.read_csv(
 ).set_index("$Registration")
 
 # print(infile)
-#print(aircraftlist)
+# print(aircraftlist)
 
-#infile.update(aircraftlist)
+# infile.update(aircraftlist)
 
-#print(infile)
+# print(infile)
 Left_join = pd.merge(infile, aircraftlist, on="$Registration", how="left")
 
 Left_join.to_csv("out.csv")
